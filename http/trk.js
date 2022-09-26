@@ -4,7 +4,7 @@ const database = require(__dirname + '/../database')
 
 const createNewImpression = async (data) => {
     await database.connect()
-    return await database.connection.execute('INSERT INTO `native_ab_test` (`placement_id`, `ab`, `event`, `domain`, `price`) VALUES(?,?,?,?,?)', Object.values(data))
+    return database.connection.execute('INSERT INTO `native_ab_test` (`placement_id`, `ab`, `event`, `domain`, `price`) VALUES(?,?,?,?,?)', Object.values(data));
 }
 
 app.get('/trk', async (req, res) => {
@@ -18,14 +18,14 @@ app.get('/trk', async (req, res) => {
 
     if (data.placement_id && data.event && data.ab) {
         return await createNewImpression(data)
-            .then((result) => {
+            .then(() => {
                 res.writeHead(200, { 'Content-Type': 'image/gif' });
                 res.end(
                     Buffer.from('R0lGODlhAQABAIAAAP///wAAACwAAAAAAQABAAACAkQBADs=', 'base64'),
                     'binary'
                 );
             })
-            .catch((error) => {
+            .catch(() => {
                 res.status(404).send('')
             })
     }
