@@ -1,0 +1,21 @@
+{
+  "name": "ab-testing",
+  "version": "1.0.0",
+  "description": "AB Testing Tool",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "ab-test"
+  ],
+  "author": "Faisal Islam",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "sqlite3": "^5.1.1"
+  }
+}
