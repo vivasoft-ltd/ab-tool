@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express.Router()
-const database = require(__dirname + '/../database')
+const database = require('./../database')
 
 const createNewImpression = async (data) => {
     await database.connect()

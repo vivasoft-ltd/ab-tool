@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express.Router()
-const DB = require(__dirname + '/../database')
+const DB = require('./../database')
 
 app.get('/ab', async (req, res) => {
     await DB.connect()
